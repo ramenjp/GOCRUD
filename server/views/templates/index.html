@@ -1,14 +1,20 @@
 {{define "index"}}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>index</title>
-</head>
-<body>
-    <h1>Go CRUD App.</h1>
-    <a href="/create">Create</a>
-    <a href="/delete">Delete</a>
-</body>
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Go CRUD App</h1>
+      {{.}}
+      <ul class="button-wrapper">
+        <a href="/create"><div class="button-black">Create</div></a>
+        <a href="/delete"><div class="button-white">Delete</div></a>
+      </ul>
+    </div>
+  </body>
 </html>
 {{end}}

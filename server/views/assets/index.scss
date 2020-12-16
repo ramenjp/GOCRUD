@@ -1,3 +1,46 @@
-.html {
-    color:red;
+.body {
+    background-color:#B0DADA;
+}
+
+.wrapper {
+    justify-content: center;
+    text-align: center;
+    padding:100px;
+    background-color:white;
+    border:1px black;
+    border-radius: 5px;
+}
+
+.button-wrapper {
+    margin-top:30px;
+    display: flex;
+}
+
+
+.button-black {
+   margin-right:30px;
+    display:flex;
+    justify-content: center;
+    vertical-align: center;
+    font-weight:bold;
+    height:30px;
+    width:150px;
+    background-color: black;
+    color:white;
+    border-radius: 5px;
+}
+
+.button-white {
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    vertical-align: center;
+    font-weight:bold;
+    height:30px;
+    width:150px;
+    border: 1px black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    color:black;
 }

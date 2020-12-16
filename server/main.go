@@ -20,8 +20,49 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 }
 
 type User struct {
-	Name   string
-	UserId string
+	ID    int    `db:"id"`
+	Name  string `db:"name"`
+	Email string `db:"email"`
+}
+
+func main() {
+	db := gormConnect()
+	defer db.Close()
+
+	e := echo.New()
+	t := &Template{
+		templates: template.Must(template.ParseGlob("views/templates/*.html")),
+	}
+
+	//CSSと画像のpath設定
+	e.Static("/css", "./views/assets")
+	e.Static("/image", "./views/assets")
+
+	e.Renderer = t
+
+	e.GET("/", func(c echo.Context) error {
+		var users []User
+		db.Find(&users) // 全レコード
+		return c.Render(http.StatusOK, "index", users)
+	})
+
+	e.POST("/", func(c echo.Context) error {
+		var users []User
+		db.Find(&users) // 全レコード
+		return c.Render(http.StatusOK, "index", users)
+	})
+
+	e.GET("/create", func(c echo.Context) error {
+		// fmt.Println("This is create")
+		return c.Render(http.StatusOK, "create", nil)
+	})
+
+	e.GET("/delete", func(c echo.Context) error {
+		// fmt.Println("This is delete")
+		return c.Render(http.StatusOK, "delete", nil)
+	})
+
+	e.Logger.Fatal(e.Start(":9000"))
 }
 
 func gormConnect() *gorm.DB {
@@ -40,35 +81,4 @@ func gormConnect() *gorm.DB {
 		panic(err.Error())
 	}
 	return db
-}
-
-func main() {
-	fmt.Print("This is main func")
-	db := gormConnect()
-	defer db.Close()
-
-	e := echo.New()
-	t := &Template{
-		templates: template.Must(template.ParseGlob("views/templates/*.html")),
-	}
-
-	e.Renderer = t
-	fmt.Print("This is main func")
-	e.GET("/", func(c echo.Context) error {
-		fmt.Println("This is index")
-		return c.Render(http.StatusOK, "index", nil)
-	})
-
-	e.GET("/create", func(c echo.Context) error {
-		fmt.Println("This is create")
-		return c.Render(http.StatusOK, "create", nil)
-	})
-
-	e.GET("/delete", func(c echo.Context) error {
-		fmt.Println("This is delete")
-		return c.Render(http.StatusOK, "delete", nil)
-	})
-
-	e.Logger.Fatal(e.Start(":9000"))
-
 }
