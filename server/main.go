@@ -43,13 +43,13 @@ func gormConnect() *gorm.DB {
 }
 
 func main() {
-
+	fmt.Print("This is main func")
 	db := gormConnect()
 	defer db.Close()
 
 	e := echo.New()
 	t := &Template{
-		templates: template.Must(template.ParseGlob("templates/*.html")),
+		templates: template.Must(template.ParseGlob("views/templates/*.html")),
 	}
 
 	e.Renderer = t
@@ -64,7 +64,7 @@ func main() {
 		return c.Render(http.StatusOK, "create", nil)
 	})
 
-	e.POST("/delete", func(c echo.Context) error {
+	e.GET("/delete", func(c echo.Context) error {
 		fmt.Println("This is delete")
 		return c.Render(http.StatusOK, "delete", nil)
 	})
