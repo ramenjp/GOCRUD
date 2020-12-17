@@ -3,10 +3,6 @@
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  padding: 300px;
-  background-color: white;
-  border: 1px black;
-  border-radius: 5px;
 }
 
 .title {

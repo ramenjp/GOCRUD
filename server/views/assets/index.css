@@ -1,5 +1,9 @@
 .content-wrapper {
+  padding: 150px;
   background-image: url("./image/Gopher.jpg");
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+  background-size: contain;
 }
 
 .content-table {
