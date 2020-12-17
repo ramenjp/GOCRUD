@@ -1,58 +1,38 @@
-.body {
-  background-color: #B0DADA;
+.content-wrapper {
+  background-image: url("./image/Gopher.jpg");
 }
 
-.wrapper {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  padding: 300px;
-  background-color: white;
-  border: 1px black;
-  border-radius: 5px;
+.content-table {
+  margin-top: 30px;
+  margin: 0 auto;
+}
+
+.column {
+  text-align: left;
+  width: 100px;
 }
 
 .button-wrapper {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
   margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  color: white;
 }
 
 .button-black {
   margin-right: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   vertical-align: center;
   font-weight: bold;
   height: 30px;
   width: 150px;
-  background-color: black;
-  color: white;
-  border-radius: 5px;
-}
-
-.button-white {
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  vertical-align: center;
-  font-weight: bold;
-  height: 30px;
-  width: 150px;
-  border: 1px black;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px black solid;
   color: black;
+  border-radius: 5px;
+  text-decoration: none;
 }
 /*# sourceMappingURL=index.css.map */

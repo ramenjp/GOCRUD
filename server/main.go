@@ -15,17 +15,15 @@ type Template struct {
 	templates *template.Template
 }
 
-func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
-	return t.templates.ExecuteTemplate(w, name, data)
-}
-
 type User struct {
 	ID    int    `gorm:"id"`
 	Name  string `db:"name"`
 	Email string `db:"email"`
 }
 
-// var users = map[int]*User{}
+func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
+	return t.templates.ExecuteTemplate(w, name, data)
+}
 
 func main() {
 	db := gormConnect()
@@ -46,13 +44,6 @@ func main() {
 		var users []User
 		// 全レコード取得
 		db.Find(&users) //usersのアドレス情報を使って書き換えている
-		// fmt.Println("result", result)
-		return c.Render(http.StatusOK, "index", users)
-	})
-
-	e.POST("/", func(c echo.Context) error {
-		var users []User
-		db.Find(&users) // 全レコード
 		return c.Render(http.StatusOK, "index", users)
 	})
 
@@ -64,9 +55,15 @@ func main() {
 	})
 
 	e.GET("/create", func(c echo.Context) error {
-		// fmt.Println("This is create")
-
 		return c.Render(http.StatusOK, "create", nil)
+	})
+
+	e.POST("/create/complete", func(c echo.Context) error {
+		name := c.FormValue("name")
+		email := c.FormValue("email")
+		user := User{Name: name, Email: email}
+		db.Create(&user)
+		return c.Render(http.StatusOK, "complete", nil)
 	})
 
 	e.Logger.Fatal(e.Start(":9000"))

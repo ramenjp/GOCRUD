@@ -9,16 +9,16 @@
   </head>
   <body>
     <div class="title">ユーザー作成</div>
-    <form action="/" method="POST">
+    <form action="/create/complete"  method="POST">
       <div class="user-info">
         <div class="user-info-item">名前:</div>
         <div>
-          <input type="text" id="name" />
+          <input type="text" name="name" />
         </div>
       </div>
       <div class="user-info">
         <div class="user-info-item">メールアドレス:</div>
-        <input type="text" id="email" />
+        <input type="text" name="email" />
       </div>
       <input type="submit" />
     </form>
