@@ -20,10 +20,12 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 }
 
 type User struct {
-	ID    int    `db:"id"`
+	ID    int    `gorm:"id"`
 	Name  string `db:"name"`
 	Email string `db:"email"`
 }
+
+// var users = map[int]*User{}
 
 func main() {
 	db := gormConnect()
@@ -42,7 +44,9 @@ func main() {
 
 	e.GET("/", func(c echo.Context) error {
 		var users []User
-		db.Find(&users) // 全レコード
+		// 全レコード取得
+		db.Find(&users) //usersのアドレス情報を使って書き換えている
+		// fmt.Println("result", result)
 		return c.Render(http.StatusOK, "index", users)
 	})
 
@@ -52,14 +56,17 @@ func main() {
 		return c.Render(http.StatusOK, "index", users)
 	})
 
-	e.GET("/create", func(c echo.Context) error {
-		// fmt.Println("This is create")
-		return c.Render(http.StatusOK, "create", nil)
+	e.GET("/:id", func(c echo.Context) error {
+		var user User
+		id := c.Param("id")
+		db.Delete(&user, id)
+		return c.Render(http.StatusOK, "delete", nil)
 	})
 
-	e.GET("/delete", func(c echo.Context) error {
-		// fmt.Println("This is delete")
-		return c.Render(http.StatusOK, "delete", nil)
+	e.GET("/create", func(c echo.Context) error {
+		// fmt.Println("This is create")
+
+		return c.Render(http.StatusOK, "create", nil)
 	})
 
 	e.Logger.Fatal(e.Start(":9000"))

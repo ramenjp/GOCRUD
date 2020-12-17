@@ -9,11 +9,31 @@
   <body>
     <div class="wrapper">
       <h1>Go CRUD App</h1>
-      {{.}}
-      <ul class="button-wrapper">
+
+      <table>
+        <tr>
+          <th class="column">ID</th>
+          <th class="column">名前</th>
+          <th class="column">メールアドレス</th>
+        </tr>
+        {{range $user := .}}
+        <tr>
+          <td>{{$user.ID}}</td>
+          <td>{{$user.Name}}</td>
+          <td>{{$user.Email}}</td>
+          <td>
+              <button type="submit">
+                <a href="/{{$user.ID}}">削除する</a>
+              </button>
+          </td>
+        </tr>
+        {{end}}
+      </table>
+
+      <div class="button-wrapper">
         <a href="/create"><div class="button-black">Create</div></a>
         <a href="/delete"><div class="button-white">Delete</div></a>
-      </ul>
+      </div>
     </div>
   </body>
 </html>
