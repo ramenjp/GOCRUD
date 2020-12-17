@@ -9,4 +9,27 @@
   font-weight: bold;
   font-size: 32px;
 }
+
+.button-wrapper {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+}
+
+.button-black {
+  vertical-align: center;
+  font-weight: bold;
+  height: 30px;
+  width: 150px;
+  border: 1px black solid;
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+}
 /*# sourceMappingURL=main.css.map */

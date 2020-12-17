@@ -4,7 +4,15 @@
   display: flex;
 }
 
-.user-info-item {
-  margin-right: 12px;
+.create-form {
+  padding: 30px;
+  list-style: none;
+}
+
+.create-item {
+  font-size: 20px;
+  font-weight: bold;
+  width: 50%;
+  text-align: left;
 }
 /*# sourceMappingURL=create.css.map */

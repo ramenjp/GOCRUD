@@ -9,22 +9,28 @@
   </head>
   <body>
     <div class="wrapper">
-    <div class="title">ユーザー作成</div>
-    <form action="/create/complete"  method="POST">
-      <div class="user-info">
-        <div class="user-info-item">名前:</div>
-        <div>
-          <input type="text" name="name" />
-        </div>
+      <div class="title">ユーザー作成</div>
+      <form action="/create/complete" method="POST">
+        <ul>
+          <li class="create-form">
+            <div class="user-info">
+              <div class="create-item">名前:</div>
+              <div><input type="text" name="name" /></div>
+            </div>
+          </li>
+          <li class="create-form">
+            <div class="user-info">
+              <div class="create-item">メールアドレス:</div>
+              <div><input type="text" name="email" /></div>
+            </div>
+          </li>
+        </ul>
+        <input type="submit" />
+      </form>
+      <div class="button-wrapper">
+        <a href="/" class="button-black">トップに戻る</a>
       </div>
-      <div class="user-info">
-        <div class="user-info-item">メールアドレス:</div>
-        <input type="text" name="email" />
-      </div>
-      <input type="submit" />
-    </form>
-    <a href="/">Topに戻る</a>
-</div>
+    </div>
   </body>
 </html>
 {{end}}
