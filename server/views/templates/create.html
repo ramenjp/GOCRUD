@@ -4,11 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/create.css" />
   </head>
   <body>
-    <div>Create</div>
+    <div class="title">ユーザー作成</div>
     <form action="/" method="POST">
-      <input type="text" id="name" />
+      <div class="user-info">
+        <div class="user-info-item">名前:</div>
+        <div>
+          <input type="text" id="name" />
+        </div>
+      </div>
+      <div class="user-info">
+        <div class="user-info-item">メールアドレス:</div>
+        <input type="text" id="email" />
+      </div>
       <input type="submit" />
     </form>
     <a href="/">Topに戻る</a>

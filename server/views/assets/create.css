@@ -1,0 +1,10 @@
+.user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.user-info-item {
+  margin-right: 12px;
+}
+/*# sourceMappingURL=create.css.map */
